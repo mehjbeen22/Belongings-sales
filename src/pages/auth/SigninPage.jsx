@@ -22,7 +22,7 @@ export const SigninPage = () => {
       <div className={styles.container}>
         <form className={styles.formCase} onSubmit={onSubmitHandler}>
           <h1
-            style={{ marginTop: "1rem", color: "#365314", fontSize: "2.3rem" }}
+            style={{ marginTop: "1rem", color: "#4f0024", fontSize: "2.3rem" }}
           >
             SIGN IN
           </h1>
@@ -54,7 +54,7 @@ export const SigninPage = () => {
             onChange={onChangeHandler}
           />
           <button className={styles.loginBtn}>Sign In</button>
-          <div className={styles.para}></div>{" "}
+          <div className={styles.para}></div>
         </form>
       </div>
     </>

@@ -1,0 +1,13 @@
+.card-main-case{
+    /* padding: 1rem; */
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin: 2rem;
+    flex-direction: column;
+
+}
+.card-border{
+    border: 2px solid var(--base2);
+    cursor: pointer;
+}

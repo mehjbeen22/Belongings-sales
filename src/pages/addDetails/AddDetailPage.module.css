@@ -1,16 +1,21 @@
 .mainCantainer {
-  /* background-color: black;   */
   width: 100%;
-  /* height: 100vh; */
   display: flex;
   justify-content: center;
-  align-items: center;
+
+}
+
+.detail-heading {
+  margin-top: "1rem";
+  color: var(--base);
+  font-size: "2.3rem";
+  font-family: 'Playfair Display', serif;
 }
 
 .formHolder {
   background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  width: 45%;
+  width: 40%;
   margin-block: 20px;
   text-align: center;
   display: flex;
@@ -27,14 +32,14 @@
 }
 
 label {
- text-align: left;
+  text-align: left;
   font-size: 1.2rem;
   border: none;
 }
 
 .inputbox {
   margin-block: 8px;
-  padding: 12px;
+  padding: 10px;
   width: 100%;
   outline: none;
   font-size: 1rem;
@@ -49,10 +54,10 @@ label {
 }
 
 
-.Submit{
+.Submit {
   align-items: center;
   background-color: #FFFFFF;
-  border: 1px solid rgba(0, 0, 0);
+  border: 1px solid var(--base);
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   box-sizing: border-box;
   color: rgba(0, 0, 0, 0.85);
@@ -63,22 +68,22 @@ label {
   font-size: 1.2rem;
   border-radius: 8px;
 
-  
+
 }
 
- 
-.Submit:hover{
-  background-color:  #e5e7eb;
- } 
+
+.Submit:hover {
+  background-color: var(--base2);
+}
 
 
- .PriceCase{
+.PriceCase {
   /* border: solid red; */
   display: flex;
   gap: 10px;
- }
+}
 
- .priceBlock{
+.priceBlock {
   /* border: solid teal; */
   text-align: left;
- }
+}

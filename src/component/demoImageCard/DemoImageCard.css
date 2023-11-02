@@ -1,0 +1,32 @@
+.cardBody {
+    position: relative;
+    border: 5px groove var(--primary);
+}
+
+.demoImage {
+    height: 10rem;
+    width: 100%;
+    padding: 0.3rem;
+}
+
+.imageMainCase {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    gap: 2rem;
+    align-items: center;
+    object-fit: cover;
+    margin-top: 2rem;
+}
+
+.btn-primary-add {
+    border-radius: 7rem;
+    background-color: var(--primary);
+    font-family: cursive;
+    border: 3px groove var(--secondary);
+}
+.btn-primary-select{
+   color: var(--base);
+    background-color: var(--background);
+    font-weight:600;
+}

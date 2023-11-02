@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styles from "./AddDetailPage.module.css";
 
-
-
 export const AddDetailPage = () => {
   const [formData, setFormData] = useState({
     address: "",
@@ -23,25 +21,18 @@ export const AddDetailPage = () => {
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(formData);
   };
-  console.log("Form Data", formData);
   return (
     <>
       <div className={styles.mainCantainer}>
         <form className={styles.formHolder} onSubmit={formSubmitHandler}>
-          <h1
-            style={{ marginTop: "1rem", color: "#365314", fontSize: "2.3rem" }}
-          >
-            ADD DETAILS
-          </h1>
+          <h1 className="detail-heading">ADD DETAILS</h1>
 
           <label> Address </label>
           <input
             type="text"
             name="address"
             value={formData.address}
-            placeholder="Address"
             className={styles.inputbox}
             onChange={ChangeHandler}
           />
@@ -52,7 +43,6 @@ export const AddDetailPage = () => {
             type="text"
             name="geolocation"
             value={formData.geolocation}
-            placeholder="Geo Location"
             className={styles.inputbox}
             onChange={ChangeHandler}
           />
@@ -63,7 +53,6 @@ export const AddDetailPage = () => {
             type="text"
             name="configuration"
             value={formData.configuration}
-            placeholder="Configuration"
             className={styles.inputbox}
             onChange={ChangeHandler}
           />
@@ -73,7 +62,6 @@ export const AddDetailPage = () => {
             type="text"
             name="amenities"
             value={formData.amenities}
-            placeholder="Amenities"
             className={styles.inputbox}
             onChange={ChangeHandler}
           />
@@ -84,7 +72,6 @@ export const AddDetailPage = () => {
             type="text"
             name="availability"
             value={formData.availability}
-            placeholder="Availability"
             className={styles.inputbox}
             onChange={ChangeHandler}
           />
@@ -105,7 +92,6 @@ export const AddDetailPage = () => {
               <input
                 type="number"
                 name="rent"
-                placeholder="Enter Rent"
                 value={formData.rent}
                 className={styles.inputbox}
                 onChange={ChangeHandler}
@@ -118,7 +104,6 @@ export const AddDetailPage = () => {
               <input
                 type="number"
                 name="maintenance"
-                placeholder="Enter Maintenance"
                 value={formData.maintenance}
                 className={styles.inputbox}
                 onChange={ChangeHandler}
@@ -131,7 +116,6 @@ export const AddDetailPage = () => {
               <input
                 type="number"
                 name="deposit"
-                placeholder="Enter Deposit"
                 value={formData.deposit}
                 className={styles.inputbox}
                 onChange={ChangeHandler}
@@ -146,5 +130,3 @@ export const AddDetailPage = () => {
     </>
   );
 };
-
-

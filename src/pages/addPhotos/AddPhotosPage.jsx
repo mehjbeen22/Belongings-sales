@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { BsHouseAddFill } from "react-icons/bs";
 
 import { DemoImageCard } from "../../component/demoImageCard/DemoImageCard";
 import { ImageInfoModal } from "../../component/imageInfoModal/imageInfoModal";
 import { DemoAssets } from "../../database/demoImageData";
 
+
+
 export const AddPhotos = () => {
   const [toggleImageModal, setToggleImageModal] = useState(false);
+ 
   return (
     <>
+    
       <div className="imageMainCase">
 
         {DemoAssets.map((item, index) => {

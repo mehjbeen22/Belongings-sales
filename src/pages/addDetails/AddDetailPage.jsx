@@ -1,26 +1,21 @@
-import React, { useState } from "react";
+import { useFormData } from "../../hooks/FormDataReducer";
 import styles from "./AddDetailPage.module.css";
 
 export const AddDetailPage = () => {
-  const [formData, setFormData] = useState({
-    address: "",
-    geolocation: "",
-    configuration: "",
-    amenities: "",
-    availability: "",
-    photos: "",
-    rent: "",
-    maintenance: "",
-    deposit: "",
-  });
+  const { formData, dispatch } = useFormData();
 
   // Handle Functions __________
   const ChangeHandler = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    dispatch({
+      type: "UPDATE FIELD",
+      field: e.target.name,
+      value: e.target.value,
+    });
   };
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
+    console.log(formData);
   };
   return (
     <>

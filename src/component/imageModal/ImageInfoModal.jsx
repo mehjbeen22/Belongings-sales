@@ -15,6 +15,7 @@ export const ImageInfoModal = ({ setToggleImageModal }) => {
         </div>
         <input type="text" id="imageType" />
         <FaCloudUploadAlt size={30} />
+
         <button
           className="submit-button"
          

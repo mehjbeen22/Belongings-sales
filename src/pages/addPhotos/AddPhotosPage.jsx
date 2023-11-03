@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BsHouseAddFill } from "react-icons/bs";
 
 import { DemoImageCard } from "../../component/demoImageCard/DemoImageCard";
-import { ImageInfoModal } from "../../component/imageInfoModal/imageInfoModal";
+import { ImageInfoModal } from "../../component/imageModal/ImageInfoModal";
 import { DemoAssets } from "../../database/demoImageData";
 
 export const AddPhotos = () => {
@@ -18,6 +18,9 @@ export const AddPhotos = () => {
         <button className="btn btn-primary-add" onClick={()=>setToggleImageModal(true)}>
           More <br /> <BsHouseAddFill size={25} />
         </button>
+
+        
+        
       </div>
 
       {toggleImageModal && (

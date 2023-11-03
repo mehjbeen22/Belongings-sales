@@ -6,17 +6,16 @@ export const PropertyContext = createContext(null);
 export const PropertyContextProvider = ({ children }) => {
   const initialState = {
     persistData: {
-      id: "003",
-      address: "456 Elm St",
-      geolocation: "Latitude: 34.0522, Longitude: -118.2437",
-      configuration: "2 bedrooms, 2.5 bathrooms",
-      amenities: "Balcony, parking",
-      availability: "Available from 1st December",
-      photos:
-        "https://cdn.pixelspray.io/v2/black-bread-289bfa/TIw66q/wrkr/t.resize(h:780,w:780)/data/Westelm/01072022img/7517735_1.jpg",
-      rent: "2,800/month",
-      maintenance: "150/month",
-      deposit: "2,800",
+      id: "",
+      address: "",
+      geolocation: "",
+      configuration: "",
+      amenities: "",
+      availability: "",
+      photos: "",
+      rent: "",
+      maintenance: "",
+      deposit: "",
       multipleImages: [],
     },
 
@@ -30,8 +29,8 @@ export const PropertyContextProvider = ({ children }) => {
         availability: "Available now",
         photos:
           "https://www.godrejinterio.com/imagestore/B2C/56101543SD00155/56101543SD00155_A1_803x602.jpg",
-        rent: "2,500/month",
-        maintenance: "200/month",
+        rent: "2,500",
+        maintenance: "200",
         deposit: "2,500",
         multipleImages: [
           "https://i.etsystatic.com/26008302/r/il/77a603/3416039959/il_1080xN.3416039959_p5o9.jpg",

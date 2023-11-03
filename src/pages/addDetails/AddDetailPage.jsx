@@ -11,7 +11,6 @@ export const AddDetailPage = () => {
     dispatchAssetState,
   } = useContext(PropertyContext);
 
-  console.log(storePersistData);
 
   const ChangeHandler = (event) => {
     const { name, value } = event.target;

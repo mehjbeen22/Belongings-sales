@@ -2,12 +2,10 @@ import { useContext } from "react";
 import "./DisplayDetail.css";
 import { PropertyContext } from "../../hooks/PropertyContext";
 import { useParams } from "react-router-dom";
-// import "../../component/exploreCard/PropertyCard.css";
 
 export const DisplayDetail = () => {
   const { propertyID } = useParams();
 
-  console.log(propertyID);
   const {
     assetState: { storePersistData },
   } = useContext(PropertyContext);

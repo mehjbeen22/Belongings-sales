@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 export const AddPhotos = () => {
   const navigate = useNavigate();
   const {
-    assetState: { persistData },
+    assetState: { persistData, storePersistData },
     dispatchAssetState,
   } = useContext(PropertyContext);
 
@@ -23,8 +23,10 @@ export const AddPhotos = () => {
 
     setTimeout(() => {
       navigate("/explore");
-    }, 500);
+    }, 1000);
   };
+
+  console.log(storePersistData,'-');
 
   return (
     <>

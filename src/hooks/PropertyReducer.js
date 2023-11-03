@@ -14,13 +14,13 @@ export const PropertyReducer = (state, { type, payload }) => {
         persistData: { ...state.persistData, photos: payload },
       };
     case "SET_MULTIPLE_IMAGE":
+      console.log(payload, "-");
       return {
         ...state,
-        persistData: {
-          ...state.persistData,
-          multipleImages: payload,
-        },
-        storePersistData: [...state.storePersistData, state.persistData],
+        storePersistData: [
+          ...state.storePersistData,
+          { ...state.persistData, multipleImages: payload },
+        ],
       };
 
     default:

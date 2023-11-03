@@ -17,6 +17,7 @@
     align-items: center;
     object-fit: cover;
     margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
 .btn-primary-add {
@@ -25,8 +26,14 @@
     font-family: cursive;
     border: 3px groove var(--secondary);
 }
-.btn-primary-select{
-   color: var(--base);
+
+.btn-primary-select {
+    color: var(--base);
     background-color: var(--background);
-    font-weight:600;
+    font-weight: 600;
+}
+
+.cardBody span {
+    cursor: pointer;
+    position: absolute;
 }

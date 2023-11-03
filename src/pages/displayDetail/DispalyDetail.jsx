@@ -1,45 +1,73 @@
+import { useContext } from "react";
 import "./DisplayDetail.css";
+import { PropertyContext } from "../../hooks/PropertyContext";
+import { useParams } from "react-router-dom";
+// import "../../component/exploreCard/PropertyCard.css";
 
 export const DisplayDetail = () => {
+  const { propertyID } = useParams();
+
+  console.log(propertyID);
+  const {
+    assetState: { storePersistData },
+  } = useContext(PropertyContext);
+
+  const obtainSingleData = storePersistData.find(
+    (item) => item.id == propertyID
+  );
+  console.log(obtainSingleData.multipleImages);
+
   return (
     <div className="detail-case">
-      <div className="card mb-3 property-info" style={{ maxWidth: "70%" }}>
-        <div className="row g-0">
-          {/* <div className="col-md-4"></div> */}
-          <div className="col-md-8">
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <p className="card-text">
-                <small className="text-body-secondary">
-                  Last updated 3 mins ago
-                </small>
-              </p>
-            </div>
+      <div className="col-md-8">
+        <div className="custom-card">
+          <h5 className="card-title">Property Details</h5>
+          <div className="custom-card-text">
+            <p className="property-infos">
+              <strong>Address:</strong>
+              {obtainSingleData?.address}
+            </p>
+            <p className="property-infos">
+              <strong>Geolocation:</strong>
+              {obtainSingleData?.geolocation}
+            </p>
+            <p className="property-infos">
+              <strong>Configuration:</strong>
+              {obtainSingleData?.configuration}
+            </p>
+            <p className="property-infos">
+              <strong>Amenities:</strong>
+              {obtainSingleData?.amenities}
+            </p>
+            <p className="property-infos">
+              <strong>Availability:</strong>
+              {obtainSingleData?.availability}
+            </p>
+            <p className="property-infos">
+              <strong>Rent:</strong>
+              {obtainSingleData?.rent}
+            </p>
+            <p className="property-infos">
+              <strong>Maintenance:</strong>
+              {obtainSingleData?.maintenance}
+            </p>
+            <p className="property-infos">
+              <strong>Deposit:</strong>
+              {obtainSingleData?.deposit}
+            </p>
           </div>
+          <p className="last-updated">
+            <small>Last updated 3 mins ago</small>
+          </p>
         </div>
       </div>
 
       <div className="image-case">
-        <img
-          src="https://foyr.com/learn/wp-content/uploads/2021/08/design-your-dream-home.jpg"
-          alt=""
-          className="multi-img-size"
-        />
-        <img
-          src="https://foyr.com/learn/wp-content/uploads/2021/08/design-your-dream-home.jpg"
-          alt=""
-          className="multi-img-size"
-        />
-        <img
-          src="https://foyr.com/learn/wp-content/uploads/2021/08/design-your-dream-home.jpg"
-          alt=""
-          className="multi-img-size"
-        />
+        {obtainSingleData?.multipleImages?.map((item, index) => {
+          return (
+            <img key={index} src={item} alt="" className="multi-img-size" />
+          );
+        })}
       </div>
     </div>
   );

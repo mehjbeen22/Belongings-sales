@@ -8,7 +8,6 @@ export const Navbar = () => {
       <Link to="/detail" className={styles.link}>Details</Link>
       <Link to="/photos" className={styles.link}>Photos</Link>
       <Link to="/explore" className={styles.link}>Explore</Link>
-      <Link to="/pageId" className={styles.link}>Single Page</Link>
 
 
     </div>

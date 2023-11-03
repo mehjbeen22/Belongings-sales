@@ -1,53 +1,59 @@
-import { useState } from "react";
-import { BsHouseAddFill } from "react-icons/bs";
+import { useContext } from "react";
+import { FaCloudUploadAlt } from "react-icons/fa";
+import { PropertyContext } from "../../hooks/PropertyContext";
 
-import { DemoImageCard } from "../../component/demoImageCard/DemoImageCard";
-import { ImageInfoModal } from "../../component/imageModal/ImageInfoModal";
-import { DemoAssets } from "../../database/demoImageData";
+import "../../component/demoImageCard/DemoImageCard.css";
+import { useNavigate } from "react-router-dom";
 
 export const AddPhotos = () => {
-  const [toggleImageModal, setToggleImageModal] = useState(false);
-  const [assetsArray, setAssetsArray] = useState(DemoAssets);
+  const navigate = useNavigate();
+  const {
+    assetState: { persistData },
+    dispatchAssetState,
+  } = useContext(PropertyContext);
 
-  const [imageInfoField, setImageInfoFiels] = useState({
-    assetsName: "",
-    assetsUrl: "",
-  });
+  const handleImageInput = (event) => {
+    const selectFile = event.target.files;
+    const filetoArray = Array.from(selectFile);
+    const fileUrl = filetoArray.map((item) => {
+      return URL.createObjectURL(item);
+    });
 
-  const modalSubmit = (event) => {
-    event.preventDefault();
-    setToggleImageModal(false)
-    setAssetsArray([...assetsArray, imageInfoField ])
+    dispatchAssetState({ type: "SET_MULTIPLE_IMAGE", payload: fileUrl });
+
+    setTimeout(() => {
+      navigate("/explore");
+    }, 500);
   };
 
-
-  console.log(assetsArray);
   return (
     <>
-      <div className="imageMainCase">
-        {assetsArray.map((item, index) => {
-          return <DemoImageCard key={index} data={{item, setAssetsArray, index}} />;
-        })}
-
-        <button
-          className="btn btn-primary-add"
-          onClick={() => setToggleImageModal(true)}
-        >
-          More <br /> <BsHouseAddFill size={25} />
-        </button>
+      <div className="upload-container">
+        <div className="upload-content">
+          <label htmlFor="upload" className="upload-label">
+            Upload &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <FaCloudUploadAlt className="upload-icon" size={50} />
+          </label>
+          <input
+            multiple
+            accept="image/*"
+            type="file"
+            id="upload"
+            className="upload-input"
+            onChange={handleImageInput}
+          />
+        </div>
       </div>
 
-      {toggleImageModal && (
-        <ImageInfoModal
-          setToggleImageModal={setToggleImageModal}
-          data={{
-            setToggleImageModal,
-            imageInfoField,
-            setImageInfoFiels,
-            modalSubmit,
-          }}
-        />
-      )}
+      <div className="image-gellery-case">
+        {persistData.multipleImages.length > 0 && (
+          <div className="image-gallery">
+            {persistData.multipleImages.map((image, index) => (
+              <img key={index} src={image} alt={`Preview ${index}`} />
+            ))}
+          </div>
+        )}
+      </div>
     </>
   );
 };

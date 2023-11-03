@@ -1,38 +1,51 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import styles from "./AddDetailPage.module.css";
+import { PropertyContext } from "../../hooks/PropertyContext";
 
 export const AddDetailPage = () => {
-  const [formData, setFormData] = useState({
-    address: "",
-    geolocation: "",
-    configuration: "",
-    amenities: "",
-    availability: "",
-    photos: "",
-    rent: "",
-    maintenance: "",
-    deposit: "",
-  });
+  const navigate = useNavigate();
+  const {
+    assetState: { persistData, storePersistData },
+    dispatchAssetState,
+  } = useContext(PropertyContext);
 
-  // Handle Functions __________
-  const ChangeHandler = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  console.log(storePersistData);
+
+  const ChangeHandler = (event) => {
+    const { name, value } = event.target;
+    dispatchAssetState({ type: "SET_DATA", payload: { name, value } });
+  };
+
+  const ChangeImageHandler = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const fileUrl = URL.createObjectURL(file);
+      dispatchAssetState({ type: "SET_DATA_IMAGE", payload: fileUrl });
+    }
   };
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
+    navigate("/photos");
   };
+
   return (
     <>
       <div className={styles.mainCantainer}>
-        <form className={styles.formHolder} onSubmit={formSubmitHandler}>
+        <form
+          className={styles.formHolder}
+          onSubmit={formSubmitHandler}
+          autoComplete="off"
+        >
           <h1 className="detail-heading">ADD DETAILS</h1>
 
           <label> Address </label>
           <input
             type="text"
             name="address"
-            value={formData.address}
+            value={persistData?.address}
             className={styles.inputbox}
             onChange={ChangeHandler}
           />
@@ -42,7 +55,7 @@ export const AddDetailPage = () => {
           <input
             type="text"
             name="geolocation"
-            value={formData.geolocation}
+            value={persistData?.geolocation}
             className={styles.inputbox}
             onChange={ChangeHandler}
           />
@@ -52,7 +65,7 @@ export const AddDetailPage = () => {
           <input
             type="text"
             name="configuration"
-            value={formData.configuration}
+            value={persistData?.configuration}
             className={styles.inputbox}
             onChange={ChangeHandler}
           />
@@ -61,7 +74,7 @@ export const AddDetailPage = () => {
           <input
             type="text"
             name="amenities"
-            value={formData.amenities}
+            value={persistData?.amenities}
             className={styles.inputbox}
             onChange={ChangeHandler}
           />
@@ -71,18 +84,19 @@ export const AddDetailPage = () => {
           <input
             type="text"
             name="availability"
-            value={formData.availability}
+            value={persistData?.availability}
             className={styles.inputbox}
             onChange={ChangeHandler}
           />
 
           <label> Upload Photo </label>
           <input
+            accept="image/*"
             type="file"
             name="photos"
-            value={formData.photos}
+            // value={persistData?.photos}
             className={styles.inputbox}
-            onChange={ChangeHandler}
+            onChange={ChangeImageHandler}
           />
 
           <div className={styles.PriceCase}>
@@ -92,7 +106,7 @@ export const AddDetailPage = () => {
               <input
                 type="number"
                 name="rent"
-                value={formData.rent}
+                value={persistData?.rent}
                 className={styles.inputbox}
                 onChange={ChangeHandler}
               />
@@ -104,7 +118,7 @@ export const AddDetailPage = () => {
               <input
                 type="number"
                 name="maintenance"
-                value={formData.maintenance}
+                value={persistData?.maintenance}
                 className={styles.inputbox}
                 onChange={ChangeHandler}
               />
@@ -116,14 +130,16 @@ export const AddDetailPage = () => {
               <input
                 type="number"
                 name="deposit"
-                value={formData.deposit}
+                value={persistData?.deposit}
                 className={styles.inputbox}
                 onChange={ChangeHandler}
               />
             </div>
           </div>
 
-          <button className={styles.Submit}>Submit</button>
+          <button type="submit" className={styles.Submit}>
+            Submit
+          </button>
           <div style={{ margin: "10px" }}></div>
         </form>
       </div>

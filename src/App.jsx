@@ -16,7 +16,7 @@ const App = () => {
         <Route path="/photos" element={<AddPhotos />} />
         <Route path="/detail" element={<AddDetailPage />} />
         <Route path="/explore" element={<ExploreProperties />} />
-        <Route path="/pageId" element={<DisplayDetail/>}/>
+        <Route path="/explore/page-detail/:propertyID" element={<DisplayDetail/>}/>
       </Routes>
     </div>
   );

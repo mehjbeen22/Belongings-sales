@@ -14,7 +14,6 @@ export const SigninPage = () => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    console.log(form);
   };
 
   return (

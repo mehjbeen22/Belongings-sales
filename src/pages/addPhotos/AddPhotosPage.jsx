@@ -46,6 +46,11 @@ export const AddPhotos = () => {
         </div>
       </div>
 
+{
+
+      console.log(persistData)
+}
+
       <div className="image-gellery-case">
         {persistData.multipleImages.length > 0 && (
           <div className="image-gallery">

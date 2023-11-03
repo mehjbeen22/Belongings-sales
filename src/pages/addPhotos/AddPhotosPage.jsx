@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { PropertyContext } from "../../hooks/PropertyContext";
+import './AddPhotos.css'
 
-import "../../component/demoImageCard/DemoImageCard.css";
 import { useNavigate } from "react-router-dom";
 
 export const AddPhotos = () => {
@@ -26,7 +26,6 @@ export const AddPhotos = () => {
     }, 1000);
   };
 
-  console.log(storePersistData,'-');
 
   return (
     <>

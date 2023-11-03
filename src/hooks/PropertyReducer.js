@@ -14,7 +14,6 @@ export const PropertyReducer = (state, { type, payload }) => {
         persistData: { ...state.persistData, photos: payload },
       };
     case "SET_MULTIPLE_IMAGE":
-      console.log(payload, "-");
       return {
         ...state,
         storePersistData: [

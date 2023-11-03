@@ -13,7 +13,6 @@ export const DisplayDetail = () => {
   const obtainSingleData = storePersistData.find(
     (item) => item.id == propertyID
   );
-  console.log(obtainSingleData.multipleImages);
 
   return (
     <div className="detail-case">
